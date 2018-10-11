@@ -1,0 +1,29 @@
+{
+  "name": "term",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "build:dev": "webpack --mode development",
+    "build:prod": "webpack --mode production",
+    "prestart:dev": "yarn build:dev",
+    "prestart:prod": "yarn build:prod",
+    "start:dev": "electron ./dist/term.js",
+    "start:prod": "electron ./dist/term.js",
+    "start": "yarn start:dev",
+    "lint": "tslint -c tslint.json -p tsconfig.json"
+  },
+  "devDependencies": {
+    "electron": "^3.0.3",
+    "extract-loader": "^3.0.0",
+    "file-loader": "^2.0.0",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "showdown": "^1.8.6",
+    "showdown-loader": "^1.0.1",
+    "ts-loader": "^5.2.1",
+    "tslint": "^5.11.0",
+    "typescript": "^3.1.1",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2"
+  }
+}
