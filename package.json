@@ -3,12 +3,14 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
+    "prebuild:dev": "NODE_ENV=development yarn install",
+    "prebuild:prod": "NODE_ENV=production yarn install",
     "build:dev": "webpack --mode development",
     "build:prod": "webpack --mode production",
     "prestart:dev": "yarn build:dev",
     "prestart:prod": "yarn build:prod",
-    "start:dev": "electron ./dist/term.js",
-    "start:prod": "electron ./dist/term.js",
+    "start:dev": "NODE_ENV=development electron ./dist/term.js",
+    "start:prod": "NODE_ENV=production electron ./dist/term.js",
     "start": "yarn start:dev",
     "lint": "tslint -c tslint.json -p tsconfig.json"
   },
