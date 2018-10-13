@@ -3,7 +3,7 @@
 import { app, BrowserWindow } from "electron";
 import * as path from "path";
 import * as url from "url";
-import * as term from "page/term.md";
+import * as termPath from "page/term.md?url";
 
 const isDev = () => process.env.NODE_ENV === 'development';
 const directory = isDev() ? path.join(process.cwd(), 'dist') : app.getAppPath();
@@ -13,7 +13,7 @@ app.on("ready", () => {
 
   win.loadURL(
     url.format({
-      pathname: path.join(directory, term),
+      pathname: path.join(directory, termPath),
       protocol: "file:",
       slashes: true,
     }),

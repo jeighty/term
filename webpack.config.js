@@ -11,17 +11,29 @@ module.exports = {
     rules: [
       {
         test: /\.md$/,
-        use: [
+        oneOf: [
           {
-            loader: 'file-loader',
-            options: {
-              name: '[name].html',
-              useRelativePath: true
-            }
+            resourceQuery: /url/, // file.md?url
+            use: [
+              {
+                loader: 'file-loader',
+                options: {
+                  name: '[name].html',
+                  useRelativePath: true
+                }
+              },
+              'extract-loader',
+              'html-loader',
+              'showdown-loader'
+            ]
           },
-          'extract-loader',
-          'html-loader',
-          'showdown-loader'
+          {
+            resourceQuery: /content/, // file.md?content
+            use: [
+              'html-loader',
+              'showdown-loader'
+            ]
+          }
         ],
         exclude: /node_modules/
       },
